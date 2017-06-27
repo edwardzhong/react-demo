@@ -12,6 +12,7 @@ it's a react demo
 
 ## run project
 ```javascript
+npm install
 npm run build
 npm start
 ```
