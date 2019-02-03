@@ -35,7 +35,12 @@ module.exports = {
                 test: /\.less$/,
                 use: ExtractTextPlugin.extract({
                   fallback: 'style-loader',
-                  use: ['css-loader','postcss-loader','less-loader']
+                  use: [{
+                    loader: 'css-loader',
+                      options: {
+                        minimize: true
+                      }
+                    },'postcss-loader','less-loader']
               })
             },
             {
@@ -75,8 +80,11 @@ module.exports = {
             }
         }),
         new ExtractTextPlugin({ 
-            filename: 'main.css'
+            filename: 'main.[hash].css'
         }),
+        // new webpack.optimize.UglifyJsPlugin({//压缩文件
+        //     sourceMap: true
+        // }),
         new HtmlWebpackPlugin({
             filename:'index.html',
             template: __dirname + "/index.html"//new 一个这个插件的实例，并传入相关的参数

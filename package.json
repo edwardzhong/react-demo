@@ -6,7 +6,9 @@
   "scripts": {
     "test": "jest --coverage",
     "start": "webpack-dev-server",
-    "build": "webpack"
+    "build": "webpack",
+    "production": "webpack --config ./webpack.production.config.js --progress",
+    "dev": "NODE_ENV=development webpack-dev-server  --inline --progress --colors --port 3003 --host 0.0.0.0 "
   },
   "keywords": [
     "react",

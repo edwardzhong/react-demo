@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import * as actions from '../actions/textChangeAction'
@@ -53,9 +54,10 @@ export default connect(
   		return {inputText:state.inputText};
   	},
   	(dispatch) => { 
-	  return {
-	  	nameChange:(txt) => dispatch(actions.nameChange(txt)),
-	  	emailChange:(txt) => dispatch(actions.emailChange(txt))
-	  };
+	  // return {
+	  // 	nameChange:(txt) => dispatch(actions.nameChange(txt)),
+	  // 	emailChange:(txt) => dispatch(actions.emailChange(txt))
+		// };
+		return bindActionCreators(actions,dispatch);
 	}
 )(About);

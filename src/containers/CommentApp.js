@@ -34,19 +34,17 @@ function mapStateToProps(state) {
 
 // Map Redux actions to component props
 function mapDispatchToProps(dispatch) {
-  return {
-    addComment: (comment) => dispatch(commentAction.addComment(comment)),
-    removeComment: (key) => dispatch(commentAction.removeComment(key)),
-    selectComment: (key) => dispatch(commentAction.selectComment(key)),
-    removeComments: () => dispatch(commentAction.removeComments()),
-    setEnable: () => dispatch(inputAction.setEnable()),
-    requestPosts:() => dispatch(requestAction.requestPosts()),
-    receivePosts:(json) => dispatch(requestAction.receivePosts(json)),
-    requestError:(err) => dispatch(requestAction.requestError(err))
-  }
   // return {
-  // 	actions:bindActionCreators(comActions,dispatch)
+  //   addComment: (comment) => dispatch(commentAction.addComment(comment)),
+  //   removeComment: (key) => dispatch(commentAction.removeComment(key)),
+  //   selectComment: (key) => dispatch(commentAction.selectComment(key)),
+  //   removeComments: () => dispatch(commentAction.removeComments()),
+  //   setEnable: () => dispatch(inputAction.setEnable()),
+  //   requestPosts:() => dispatch(requestAction.requestPosts()),
+  //   receivePosts:(json) => dispatch(requestAction.receivePosts(json)),
+  //   requestError:(err) => dispatch(requestAction.requestError(err))
   // }
+  return bindActionCreators({...commentAction,...inputAction,...requestAction},dispatch);
 }
 
 // Connected component
